@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'nokogiri'
 require 'htmlentities'
 
@@ -78,7 +79,7 @@ class TruncatedSaxDocument < Nokogiri::XML::SAX::Document
   end
 
   def init_parsing_state
-    @truncated_string = ""
+    @truncated_string = "".dup
     @closing_tags = []
     @estimated_length = @count_tail ? tail_length : 0
     @max_length_reached = false
